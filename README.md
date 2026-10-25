@@ -5,11 +5,11 @@ Static site (plain HTML + CSS, no build step) for GitHub Pages.
 ## Structure
 
 ```
-index.html          the whole page (About, News, Publications, Teaching, Talks, Contact)
-assets/style.css    styles (light/dark mode automatic)
+index.html          the whole page (Hero, Research, News, Publications, Teaching, Contact)
+assets/style.css    styles (warm yellow/red palette, light/dark mode automatic)
+assets/mesh.svg     decorative low-poly mesh in the header
 assets/favicon.svg  tab icon
-assets/photo.jpg    your photo (add it; square, >= 400x400)
-assets/cv.pdf       your CV (add it)
+assets/photo.jpg    profile photo
 .nojekyll           tells GitHub Pages to serve files as-is
 ```
 
