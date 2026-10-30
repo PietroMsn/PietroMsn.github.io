@@ -154,7 +154,7 @@ h2::before {
 .about .lead { font-size: 18.5px; line-height: 1.6; }
 .about p { margin: 0 0 14px; }
 
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; }
 .card {
   background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
   padding: 22px 20px 18px; box-shadow: var(--shadow);
@@ -162,14 +162,13 @@ h2::before {
   transition: transform .2s, box-shadow .2s;
 }
 .card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--butter); }
-.card:nth-child(2)::before { background: var(--blush); }
-.card:nth-child(3)::before { background: linear-gradient(to right, var(--butter), var(--blush)); }
+.card:nth-child(2)::before, .card:nth-child(3)::before { background: var(--blush); }
 .card:hover { transform: translateY(-2px); }
 .card-icon {
   width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
   background: var(--butter); color: var(--butter-ink); margin-bottom: 12px;
 }
-.card:nth-child(2) .card-icon { background: var(--blush); color: var(--accent); }
+.card:nth-child(2) .card-icon, .card:nth-child(3) .card-icon { background: var(--blush); color: var(--accent); }
 .card-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
 .card-icon svg circle { fill: currentColor; stroke: none; }
 .card h3 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin: 0 0 6px; }
@@ -225,6 +224,22 @@ h3.year {
 .teaching td.when { width: 96px; color: var(--butter-ink); font-size: 13px; font-weight: 600; padding-top: 14px; }
 .teaching .muted { font-size: 13.5px; }
 
+/* ---------- service ---------- */
+.service { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.service-block {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px;
+}
+.service-block h3 {
+  margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--butter-ink);
+}
+.chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li {
+  font-size: 14px; padding: 4px 12px; border-radius: 999px;
+  background: var(--bg); border: 1px solid var(--line);
+}
+.service-block:nth-child(2) .chips li { background: var(--blush); border-color: transparent; color: var(--accent-strong); }
+
 /* ---------- contact ---------- */
 .contact {
   display: grid; grid-template-columns: 1fr 1fr; gap: 24px; font-size: 15px;
@@ -248,6 +263,7 @@ footer { margin-top: 64px; padding: 24px 0 40px; border-top: 1px solid var(--lin
   h1 { font-size: 38px; }
   h2 { font-size: 26px; }
   .contact { grid-template-columns: 1fr; gap: 14px; padding: 20px; }
+  .service { grid-template-columns: 1fr; }
 }
 
 @media print {
