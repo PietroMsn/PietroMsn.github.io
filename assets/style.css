@@ -154,7 +154,7 @@ h2::before {
 .about .lead { font-size: 18.5px; line-height: 1.6; }
 .about p { margin: 0 0 14px; }
 
-.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
 .card {
   background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
   padding: 22px 20px 18px; box-shadow: var(--shadow);
@@ -162,13 +162,14 @@ h2::before {
   transition: transform .2s, box-shadow .2s;
 }
 .card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--butter); }
-.card:nth-child(2)::before, .card:nth-child(3)::before { background: var(--blush); }
+.card:nth-child(2)::before { background: var(--blush); }
+.card:nth-child(3)::before { background: linear-gradient(to right, var(--butter), var(--blush)); }
 .card:hover { transform: translateY(-2px); }
 .card-icon {
   width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
   background: var(--butter); color: var(--butter-ink); margin-bottom: 12px;
 }
-.card:nth-child(2) .card-icon, .card:nth-child(3) .card-icon { background: var(--blush); color: var(--accent); }
+.card:nth-child(2) .card-icon { background: var(--blush); color: var(--accent); }
 .card-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
 .card-icon svg circle { fill: currentColor; stroke: none; }
 .card h3 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin: 0 0 6px; }
