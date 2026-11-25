@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=5">
+  <link rel="stylesheet" href="assets/style.css?v=6">
 </head>
 <body>
 
@@ -22,6 +22,7 @@
     <a class="brand" href="#top"><span class="brand-mark">PM</span>Pietro Musoni</a>
     <nav>
       <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
       <a href="#news">News</a>
       <a href="#publications">Publications</a>
       <a href="#teaching">Teaching</a>
@@ -115,6 +116,37 @@
     </div>
   </section>
 
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <a class="project" href="GIM3D/">
+        <img src="GIM3D/img/teaser.jpg" alt="Clothed 3D humans from the GIM3D dataset" loading="lazy">
+        <div class="project-body">
+          <span class="project-venue">STAG 2022 · Graphical Models 2023</span>
+          <h3>GIM3D</h3>
+          <p>A synthetic dataset of over 4000 clothed 3D humans with per-vertex garment labels.</p>
+        </div>
+      </a>
+      <a class="project" href="CMH/">
+        <img src="CMH/img/teaser.jpg" alt="Mesh connectivity transfer with CMH" loading="lazy">
+        <div class="project-body">
+          <span class="project-venue">3DOR 2019 · Computers &amp; Graphics 2020</span>
+          <h3>CMH</h3>
+          <p>Functional remeshing: a scan inherits the clean connectivity of a template. MATLAB and Python code.</p>
+        </div>
+      </a>
+      <a class="project" href="Functional-skeleton-transfer/">
+        <img src="Functional-skeleton-transfer/img/teaser.jpg" alt="Skeletons transferred to humans, children and animals" loading="lazy">
+        <div class="project-body">
+          <span class="project-venue">SCA 2021 · PACMCGIT</span>
+          <h3>Functional Skeleton Transfer</h3>
+          <p>Transfer a skeleton to new shapes through a compact functional regressor.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <!-- ============ NEWS ============ -->
   <section id="news">
     <h2>News</h2>
@@ -193,6 +225,7 @@
       <div class="pub-authors"><b>P. Musoni</b>, S. Melzi, U. Castellani</div>
       <div class="pub-venue"><span class="tag">Journal</span> Graphical Models, 101187</div>
       <div class="pub-links">
+        <a href="GIM3D/">Project page</a>
         <a href="https://doi.org/10.1016/j.gmod.2023.101187">DOI</a>
         <a href="https://github.com/PietroMsn/GIM3D">Dataset</a>
       </div>
@@ -212,6 +245,7 @@
       <div class="pub-authors"><b>P. Musoni</b>, S. Melzi, U. Castellani</div>
       <div class="pub-venue"><span class="tag">Conference</span> Smart Tools and Applications in Graphics (STAG 2022), Eurographics</div>
       <div class="pub-links">
+        <a href="GIM3D/">Project page</a>
         <a href="https://doi.org/10.2312/stag.20221252">DOI</a>
         <a href="https://diglib.eg.org:443/bitstream/handle/10.2312/stag20221252/021-028.pdf">PDF</a>
         <a href="https://github.com/PietroMsn/GIM3D">Dataset</a>
@@ -224,6 +258,7 @@
       <div class="pub-authors"><b>P. Musoni</b>, R. Marin, S. Melzi, U. Castellani</div>
       <div class="pub-venue"><span class="tag">Journal</span> Proceedings of the ACM on Computer Graphics and Interactive Techniques (SCA 2021)</div>
       <div class="pub-links">
+        <a href="Functional-skeleton-transfer/">Project page</a>
         <a href="https://doi.org/10.1145/3480140">DOI</a>
       </div>
     </article>
@@ -243,6 +278,7 @@
       <div class="pub-authors">S. Melzi, R. Marin, <b>P. Musoni</b>, F. Bardon, M. Tarini, U. Castellani</div>
       <div class="pub-venue"><span class="tag">Journal</span> Computers &amp; Graphics, vol. 88, pp. 1–12</div>
       <div class="pub-links">
+        <a href="CMH/">Project page</a>
         <a href="https://doi.org/10.1016/j.cag.2020.02.002">DOI</a>
       </div>
     </article>
@@ -253,6 +289,7 @@
       <div class="pub-authors">R. Marin, S. Melzi, <b>P. Musoni</b>, F. Bardon, M. Tarini, U. Castellani</div>
       <div class="pub-venue"><span class="tag">Conference</span> Eurographics Workshop on 3D Object Retrieval (3DOR 2019)</div>
       <div class="pub-links">
+        <a href="CMH/">Project page</a>
         <a href="https://doi.org/10.2312/3dor.20191063">DOI</a>
         <a href="https://diglib.eg.org:443/bitstream/handle/10.2312/3dor20191063/063-070.pdf">PDF</a>
       </div>

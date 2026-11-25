@@ -5,11 +5,15 @@ Static site (plain HTML + CSS, no build step) for GitHub Pages.
 ## Structure
 
 ```
-index.html          the whole page (Hero, Research, News, Publications, Teaching, Contact)
+index.html          the whole page (Hero, Research, Projects, News, Publications, Teaching, Contact)
 assets/style.css    styles (warm yellow/red palette, light/dark mode automatic)
 assets/mesh.svg     decorative low-poly mesh in the header
 assets/favicon.svg  tab icon
 assets/photo.jpg    profile photo
+assets/project.css  shared styles of the project pages
+GIM3D/              project page of GIM3D (index.html + img/)
+CMH/                project page of CMH / pyCMH
+Functional-skeleton-transfer/  project page of A Functional Skeleton Transfer
 .nojekyll           tells GitHub Pages to serve files as-is
 ```
 
