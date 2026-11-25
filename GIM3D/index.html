@@ -1,175 +1,342 @@
 <!doctype html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>GIM3D: A 3D Dataset for Garment Segmentation</title>
+
   <meta name="description" content="GIM3D (Garments In Motion 3D) is a synthetic dataset of over 4000 labelled clothed 3D humans for garment segmentation.">
+
   <meta name="author" content="Pietro Musoni, Simone Melzi, Umberto Castellani">
+
   <meta property="og:title" content="GIM3D: A 3D Dataset for Garment Segmentation">
+
   <meta property="og:description" content="GIM3D (Garments In Motion 3D) is a synthetic dataset of over 4000 labelled clothed 3D humans for garment segmentation.">
+
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://pietromsn.github.io/GIM3D/img/teaser.png">
+
+  <meta property="og:image" content="https://pietromsn.github.io/GIM3D/img/teaser.png?v=3">
+
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/project.css?v=2">
+
+  <link rel="stylesheet" href="../assets/project.css?v=3">
+
 </head>
+
 <body>
 
+
+
 <header class="topbar">
+
   <div class="wrap topbar-inner">
-    <a class="brand" href="../"><span class="brand-mark">PM</span>Pietro Musoni</a>
+
+    <a class="brand" href="../"><span class="brand-mark">PM</span><span class="brand-name">Pietro Musoni</span></a>
+
     <nav>
+
       <a href="#abstract">Abstract</a>
+
       <a href="#method">Dataset</a>
+
       <a href="#results">Results</a>
+
       <a href="#bibtex">BibTeX</a>
+
     </nav>
+
   </div>
+
 </header>
 
+
+
 <section class="head">
+
   <div class="wrap">
+
     <p class="venue">STAG 2022 · Graphical Models 2023</p>
+
     <h1>GIM3D: A 3D Dataset for Garment Segmentation</h1>
+
     <p class="tagline">Garments In Motion 3D: more than 4000 clothed 3D humans, with labels for every garment and for the visible body.</p>
+
     <p class="authors">
+
         <span><a href="../">Pietro Musoni</a><sup>1</sup></span>
         <span>Simone Melzi<sup>2</sup></span>
         <span>Umberto Castellani<sup>1</sup></span>
+
     </p>
+
     <p class="affils">
+
         <span><sup>1</sup> University of Verona</span>
         <span><sup>2</sup> University of Milano-Bicocca</span>
+
     </p>
+
     <ul class="buttons">
+
         <li><a href="https://diglib.eg.org/bitstream/handle/10.2312/stag20221252/021-028.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5z"/></svg>Paper</a></li>
         <li><a href="https://doi.org/10.1016/j.gmod.2023.101187"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5a1 1 0 0 0 0 2H20v1H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/></svg>Journal (GIM3D plus)</a></li>
         <li><a href="https://github.com/PietroMsn/GIM3D"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>Code &amp; data</a></li>
         <li><a href="https://univr-my.sharepoint.com/:f:/g/personal/pietro_musoni_univr_it/IgDONan3KOMwSqseqLz33IOTAde8w0yvR28gGIzpBMaulsM?e=X88sZM"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c4.4 0 8 1.3 8 3v14c0 1.7-3.6 3-8 3s-8-1.3-8-3V5c0-1.7 3.6-3 8-3zm6 5.3C16.5 8 14.4 8.5 12 8.5S7.5 8 6 7.3V10c0 .5 2.4 1.5 6 1.5s6-1 6-1.5V7.3zm0 5.5c-1.5.7-3.6 1.2-6 1.2s-4.5-.5-6-1.2V15c0 .5 2.4 1.5 6 1.5s6-1 6-1.5v-2.2zM12 4C8.7 4 6.5 4.8 6.1 5c.4.2 2.6 1 5.9 1s5.5-.8 5.9-1C17.5 4.8 15.3 4 12 4z"/></svg>Download dataset</a></li>
         <li><a class="soft" href="#bibtex"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 6h4v6H8c0 2 1 3 3 3v2c-3 0-5-2-5-5V6zm8 0h4v6h-3c0 2 1 3 3 3v2c-3 0-5-2-5-5V6z"/></svg>BibTeX</a></li>
+
     </ul>
+
   </div>
+
 </section>
 
+
+
 <main class="wrap">
+
   <figure class="teaser">
-    <img src="img/teaser.png" alt="Clothed 3D humans from the GIM3D dataset in different poses">
+
+    <a class="zoom" href="img/teaser.png?v=3"><img src="img/teaser.png?v=3" alt="Clothed 3D humans from the GIM3D dataset in different poses"></a>
+
     <figcaption>Samples from GIM3D: different body shapes, poses, outfits and fabrics, obtained by physically simulating the garments on animated avatars.</figcaption>
+
   </figure>
 
+
+
   <div class="narrow" style="margin:0 auto">
+
   <section id="abstract">
+
     <h2>Abstract</h2>
+
     <p class="abstract">The 3D cloth segmentation task is particularly challenging due to the extreme variation of shapes, even among the same category of clothes. Several data-driven methods try to cope with this problem but they have to face the lack of available data capable to generalize to the variety of real-world data. For this reason, we present GIM3D (Garments In Motion 3D), a synthetic dataset of clothed 3D human characters in different poses. The over 4000 3D models in this dataset are produced by a physical simulation of clothes with different fabrics, sizes, and tightness, using animated human avatars having a large variety of shapes. Our dataset is composed of single meshes created to simulate 3D scans, with labels for the separate clothes and the visible body parts. We also provide an evaluation of the use of GIM3D as a training set on garment segmentation tasks using state-of-the-art data-driven methods for both meshes and point clouds.</p>
+
   </section>
+
   </div>
 
+
+
   <section id="method">
+
     <h2>Dataset</h2>
+
     <p>GIM3D starts from the animated bodies and the physically simulated garments of
+
       <a href="https://chalearnlap.cvc.uab.cat/dataset/38/description/">CLOTH3D</a>. Body and clothes are merged into a single
+
       surface, as a 3D scanner would see them, and every vertex keeps the label of the garment or of the body part it comes from.</p>
-    <figure class="fig-block">
-      <img src="img/overview.png" alt="From animated avatars to labelled clothed scans">
-      <figcaption>From animated avatars and simulated garments to single labelled meshes that mimic real 3D scans.</figcaption>
+
+    <figure class="wide fig-block">
+
+      <a class="zoom" href="img/overview.png?v=3"><img src="img/overview.png?v=3" alt="From animated avatars to labelled clothed scans"></a>
+
+      <p class="swipe">Swipe sideways to see the whole figure · tap to enlarge</p>
+    <figcaption>From animated avatars and simulated garments to single labelled meshes that mimic real 3D scans.</figcaption>
+
     </figure>
-    <figure class="fig-block">
-      <img src="img/pipeline.png" alt="Dataset creation pipeline in four steps">
-      <figcaption><b>Creation pipeline.</b> (a) Body and garments as separate meshes; (b) merged into a dense watertight mesh;
+
+    <figure class="wide fig-block">
+
+      <a class="zoom" href="img/pipeline.png?v=3"><img src="img/pipeline.png?v=3" alt="Dataset creation pipeline in four steps"></a>
+
+      <p class="swipe">Swipe sideways to see the whole figure · tap to enlarge</p>
+    <figcaption><b>Creation pipeline.</b> (a) Body and garments as separate meshes; (b) merged into a dense watertight mesh;
+
         (c) decimated while keeping the details; (d) per-vertex labels transferred from the garment meshes by nearest neighbour.</figcaption>
+
     </figure>
+
     <div class="fig-grid">
+
       <div>
+
         <h3>Three outfit categories</h3>
+
         <p>The dataset contains <b>4623 meshes</b>: 1851 with two separate garments and 2772 with a single one. The outfits are
+
           <b>t-shirt + trousers</b>, <b>top + trousers</b> and <b>jumpsuit</b>, with large variability inside each category:
+
           sleeve and trouser lengths, straps, fabrics and fit.</p>
+
         <p>Each model comes as a triangle mesh with binary labels (body / clothes) and three-class labels
+
           (body / upper garment / lower garment), in formats ready for PointNet, PointNet++ and DiffusionNet.</p>
+
       </div>
+
       <figure>
-        <img src="img/subsets.png" alt="Examples of the three outfit categories">
+
+        <a class="zoom" href="img/subsets.png?v=3"><img src="img/subsets.png?v=3" alt="Examples of the three outfit categories"></a>
+
         <figcaption>Examples from the three subsets: t-shirt + trousers, top + trousers and jumpsuit.</figcaption>
+
       </figure>
+
     </div>
+
   </section>
 
+
+
   <section id="results">
+
     <h2>Results</h2>
+
     <p>We train state-of-the-art networks for point clouds (PointNet, PointNet++) and meshes (DiffusionNet) on GIM3D and test them
+
       on <b>real scans</b> from the SIZER and BUFF datasets, never seen during training.</p>
+
     <figure class="fig-block">
-      <img src="img/results.png" alt="Garment segmentation of real scans">
+
+      <a class="zoom" href="img/results.png?v=3"><img src="img/results.png?v=3" alt="Garment segmentation of real scans"></a>
+
       <figcaption>Segmentation of real scans (top: SIZER, bottom: BUFF) by networks trained on GIM3D. From left to right:
+
         ground truth, PointNet, PointNet++ and DiffusionNet. Blue: upper garment; yellow: lower garment.</figcaption>
+
     </figure>
+
   </section>
+
+
+
 
 
   <section id="publications">
+
     <h2>Publications</h2>
+
     <ul class="pubs">
+
       <li><div class="t">GIM3D: A 3D Dataset for Garment Segmentation</div><div class="a"><b>P. Musoni</b>, S. Melzi, U. Castellani</div><div class="v">Smart Tools and Applications in Graphics (STAG 2022), Eurographics</div><div class="links"><a href="https://diglib.eg.org/bitstream/handle/10.2312/stag20221252/021-028.pdf">PDF</a><a href="https://doi.org/10.2312/stag.20221252">DOI</a></div></li>
       <li><div class="t">GIM3D plus: A labeled 3D dataset to design data-driven solutions for dressed humans</div><div class="a"><b>P. Musoni</b>, S. Melzi, U. Castellani</div><div class="v">Graphical Models, vol. 129, 101187, 2023</div><div class="links"><a href="https://doi.org/10.1016/j.gmod.2023.101187">DOI</a></div></li>
+
     </ul>
+
   </section>
+
+
 
   <section id="bibtex">
+
     <h2>BibTeX</h2>
+
     <p>If you use this work, please cite:</p>
+
     <div class="bib"><button type="button" onclick="copyBib(this)">Copy</button><pre>@inproceedings{musoni2022gim3d,
+
   title     = {{GIM3D: A 3D Dataset for Garment Segmentation}},
+
   author    = {Musoni, Pietro and Melzi, Simone and Castellani, Umberto},
+
   booktitle = {Smart Tools and Applications in Graphics - Eurographics Italian Chapter Conference},
+
   editor    = {Cabiddu, Daniela and Schneider, Teseo and Allegra, Dario and Catalano, Chiara Eva and Cherchi, Gianmarco and Scateni, Riccardo},
+
   year      = {2022},
+
   publisher = {The Eurographics Association},
+
   doi       = {10.2312/stag.20221252}
+
 }</pre></div>
     <div class="bib"><button type="button" onclick="copyBib(this)">Copy</button><pre>@article{musoni2023gim3dplus,
+
   title   = {GIM3D plus: A labeled 3D dataset to design data-driven solutions for dressed humans},
+
   author  = {Musoni, Pietro and Melzi, Simone and Castellani, Umberto},
+
   journal = {Graphical Models},
+
   volume  = {129},
+
   pages   = {101187},
+
   year    = {2023},
+
   doi     = {10.1016/j.gmod.2023.101187}
+
 }</pre></div>
+
   </section>
+
+
 
   <section id="resources">
+
     <h2>Resources</h2>
+
     <div class="res">
+
       <div class="res-block"><h3>Code &amp; data</h3><ul><li><a href="https://github.com/PietroMsn/GIM3D">GIM3D repository</a> (data format and quick start)</li><li><a href="https://univr-my.sharepoint.com/:f:/g/personal/pietro_musoni_univr_it/IgDONan3KOMwSqseqLz33IOTAde8w0yvR28gGIzpBMaulsM?e=X88sZM">Dataset download</a></li><li>Original body and garment models from <a href="https://chalearnlap.cvc.uab.cat/dataset/38/description/">CLOTH3D</a></li></ul></div>
       <div class="res-block"><h3>Related work</h3><ul><li><a href="https://github.com/PietroMsn/Scanned-Gim3D">Scanned GIM3D</a>, a scanned version of the dataset</li><li><a href="https://davide-gith.github.io/Point-cloud-segmentation-for-3D-Clothed-Human-Layering/">Point Cloud Segmentation for 3D Clothed Human Layering</a> (Computers &amp; Graphics 2025)</li></ul></div>
+
     </div>
+
   </section>
 
+
+
   <section id="ack">
+
     <h2>Acknowledgements</h2>
+
     <p class="small">This work was supported by the PRIN project nr. 202273Z7PZ, <em>Automatic Reconstruction and Interactive simulation of
+
       non-rigid shape for computer-aided cloth design</em> (I-CLOTH), and partially by the MIUR project “Dipartimenti di Eccellenza 2018-2022”
+
       of the Department of Computer Science of the University of Verona. The data are intended for non-commercial scientific research only.</p>
+
   </section>
+
+
 
 </main>
 
+
+
 <footer>
+
   <div class="wrap">
+
     <span>© 2022 Pietro Musoni, Simone Melzi, Umberto Castellani</span>
+
     <a href="../">← Pietro Musoni's homepage</a>
+
   </div>
+
 </footer>
 
+
+
 <script>
+
 function copyBib(btn) {
+
   const text = btn.nextElementSibling.textContent;
+
   const done = () => { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy", 1600); };
+
   if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => {});
+
 }
+
 </script>
+
 </body>
+
 </html>
+

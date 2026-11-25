@@ -180,3 +180,23 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 }
 
 .small { font-size: 14px; color: var(--muted); }
+
+/* ---------- figures: tap to enlarge, wide ones scroll on phones ---------- */
+.zoom { display: block; cursor: zoom-in; }
+.swipe { display: none; }
+
+@media (max-width: 720px) {
+  .brand-name { display: none; }
+  .topbar nav { display: flex; overflow-x: auto; scrollbar-width: none; margin-right: -8px; }
+  .topbar nav::-webkit-scrollbar { display: none; }
+  .topbar nav a { font-size: 13.5px; padding: 8px 10px; }
+
+  .wide .zoom { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; border-radius: 12px; }
+  .wide img { width: auto; max-width: none; height: 240px; }
+  .wide.teaser img { height: 220px; }
+  .swipe { display: block; margin: 8px 0 0; font-size: 12.5px; font-weight: 600; color: var(--butter-ink); }
+
+  .pubs .links a { padding: 8px 14px; font-size: 13px; }
+  .bib button { padding: 8px 14px; }
+  .buttons a { padding: 11px 18px; }
+}

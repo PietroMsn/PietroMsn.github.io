@@ -1,177 +1,344 @@
 <!doctype html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>CMH: Coordinates Manifold Harmonics for Functional Remeshing</title>
+
   <meta name="description" content="CMH (Coordinates Manifold Harmonics) transfers the connectivity of a template mesh onto the geometry of a scanned shape through functional maps.">
+
   <meta name="author" content="Riccardo Marin, Simone Melzi, Pietro Musoni, Filippo Bardon, Marco Tarini, Umberto Castellani">
+
   <meta property="og:title" content="CMH: Coordinates Manifold Harmonics for Functional Remeshing">
+
   <meta property="og:description" content="CMH (Coordinates Manifold Harmonics) transfers the connectivity of a template mesh onto the geometry of a scanned shape through functional maps.">
+
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://pietromsn.github.io/CMH/img/teaser.png">
+
+  <meta property="og:image" content="https://pietromsn.github.io/CMH/img/teaser.png?v=3">
+
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/project.css?v=2">
+
+  <link rel="stylesheet" href="../assets/project.css?v=3">
+
 </head>
+
 <body>
 
+
+
 <header class="topbar">
+
   <div class="wrap topbar-inner">
-    <a class="brand" href="../"><span class="brand-mark">PM</span>Pietro Musoni</a>
+
+    <a class="brand" href="../"><span class="brand-mark">PM</span><span class="brand-name">Pietro Musoni</span></a>
+
     <nav>
+
       <a href="#abstract">Abstract</a>
+
       <a href="#method">Method</a>
+
       <a href="#results">Results</a>
+
       <a href="#bibtex">BibTeX</a>
+
     </nav>
+
   </div>
+
 </header>
 
+
+
 <section class="head">
+
   <div class="wrap">
+
     <p class="venue">Eurographics 3DOR 2019 · Computers &amp; Graphics 2020</p>
+
     <h1>CMH: Coordinates Manifold Harmonics<br>for Functional Remeshing</h1>
+
     <p class="tagline">Remeshing by matching: a noisy scan inherits the clean, regular connectivity of a template mesh.</p>
+
     <p class="authors">
+
         <span>Riccardo Marin<sup>1*</sup></span>
         <span>Simone Melzi<sup>1*</sup></span>
         <span><a href="../">Pietro Musoni</a><sup>2</sup></span>
         <span>Filippo Bardon<sup>1</sup></span>
         <span>Marco Tarini<sup>2</sup></span>
         <span>Umberto Castellani<sup>1</sup></span>
+
     </p>
+
     <p class="affils">
+
         <span><sup>1</sup> University of Verona</span>
         <span><sup>2</sup> University of Milan</span>
+
     </p>
       <p class="note">* equal contribution (3DOR 2019)</p>
+
     <ul class="buttons">
+
         <li><a href="https://diglib.eg.org/bitstream/handle/10.2312/3dor20191063/063-070.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5z"/></svg>Paper (3DOR)</a></li>
         <li><a href="https://doi.org/10.1016/j.cag.2020.02.002"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5a1 1 0 0 0 0 2H20v1H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/></svg>Journal (C&amp;G)</a></li>
         <li><a href="https://github.com/PietroMsn/CMH"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>Code (MATLAB)</a></li>
         <li><a href="https://github.com/PietroMsn/pyCMH"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.7 16.3 4.4 12l4.3-4.3-1.4-1.4L1.6 12l5.7 5.7zm6.6 0 4.3-4.3-4.3-4.3 1.4-1.4 5.7 5.7-5.7 5.7z"/></svg>Code (Python)</a></li>
         <li><a class="soft" href="#bibtex"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 6h4v6H8c0 2 1 3 3 3v2c-3 0-5-2-5-5V6zm8 0h4v6h-3c0 2 1 3 3 3v2c-3 0-5-2-5-5V6z"/></svg>BibTeX</a></li>
+
     </ul>
+
   </div>
+
 </section>
 
+
+
 <main class="wrap">
-  <figure class="teaser">
-    <img src="img/teaser.png" alt="Mesh transfer: desired geometry, desired connectivity and the result">
+
+  <figure class="wide teaser">
+
+    <a class="zoom" href="img/teaser.png?v=3"><img src="img/teaser.png?v=3" alt="Mesh transfer: desired geometry, desired connectivity and the result"></a>
+
+    <p class="swipe">Swipe sideways to see the whole figure · tap to enlarge</p>
     <figcaption>From left to right: the shape with the desired geometry, the mesh with the desired connectivity, and the result of CMH, which combines the connectivity of the second with the geometry of the first.</figcaption>
+
   </figure>
 
+
+
   <div class="narrow" style="margin:0 auto">
+
   <section id="abstract">
+
     <h2>Abstract</h2>
+
     <p class="abstract">In digital world reconstruction, 2-dimensional surface of real objects are often obtained as polygonal meshes after an acquisition procedure using 3D sensors. However, such representation requires several manual efforts from highly experts to correct the irregularity of tessellation and make it suitable for professional applications, such as those in the gaming or movie industry. Moreover, for modelling and animation purposes it is often required that the same connectivity is shared among two or more different shapes. In this paper we propose a new method that exploits a remeshing-by-matching approach where the observed noisy shape inherits a regular tessellation from a target shape which already satisfies the professional constraints. A fully automatic pipeline is introduced based on a variation of the functional mapping framework. In particular, a new set of basis functions, namely the Coordinates Manifold Harmonics (CMH), is properly designed for this tessellation transfer task. In our experiments an exhaustive quantitative and quality evaluation is reported for human body shapes in T-pose where the effectiveness of the proposed functional remeshing is clearly shown in comparison with other methods.</p>
+
   </section>
+
   </div>
 
+
+
   <section id="method">
+
     <h2>Method</h2>
+
     <p>The standard Manifold Harmonics (the eigenfunctions of the Laplace–Beltrami operator) are intrinsic: they describe the shape
+
       but forget where it sits in space. CMH add to a small set of Manifold Harmonics three extra functions, one per coordinate,
+
       that capture the part of the <b>3D embedding</b> the low-frequency basis cannot represent. With this intrinsic/extrinsic
+
       basis, a functional map between the scan and the template recovers both the correspondence and the geometric details,
+
       and the template mesh is then deformed onto the scan.</p>
-    <figure class="fig-block">
-      <img src="img/construction.png" alt="Construction of the Coordinates Manifold Harmonics">
-      <figcaption><b>CMH construction.</b> For each coordinate we take the difference between the original geometry and its low-pass
+
+    <figure class="wide fig-block">
+
+      <a class="zoom" href="img/construction.png?v=3"><img src="img/construction.png?v=3" alt="Construction of the Coordinates Manifold Harmonics"></a>
+
+      <p class="swipe">Swipe sideways to see the whole figure · tap to enlarge</p>
+    <figcaption><b>CMH construction.</b> For each coordinate we take the difference between the original geometry and its low-pass
+
         reconstruction with the first 50 Manifold Harmonics; each difference generates one CMH function (red positive, blue negative).</figcaption>
+
     </figure>
+
     <div class="fig-grid">
+
       <figure>
-        <img src="img/cmh_basis.png" alt="CMH functions on two shapes">
+
+        <a class="zoom" href="img/cmh_basis.png?v=3"><img src="img/cmh_basis.png?v=3" alt="CMH functions on two shapes"></a>
+
         <figcaption>CMH computed on a female shape from TOSCA and on the SMPL model. Since they depend on the embedding,
+
           the CMH of two shapes that differ by a rigid motion are not in the same order: the pipeline handles this alignment.</figcaption>
+
       </figure>
+
       <figure>
-        <img src="img/nonstandard_pose.png" alt="Connectivity transfer for a non-standard pose">
+
+        <a class="zoom" href="img/nonstandard_pose.png?v=3"><img src="img/nonstandard_pose.png?v=3" alt="Connectivity transfer for a non-standard pose"></a>
+
         <figcaption>Connectivity transfer for a non-standard pose, from the SMPL model to a shape of the SMPL 3K dataset.</figcaption>
+
       </figure>
+
     </div>
+
   </section>
 
+
+
   <section id="results">
+
     <h2>Applications</h2>
+
     <p>Once the scan shares the connectivity of the template, everything defined on the template comes for free: textures, UV maps,
+
       skinning weights and rigs.</p>
-    <figure class="fig-block">
-      <img src="img/texture_transfer.png" alt="Texture transfer between models">
-      <figcaption><b>Texture transfer.</b> A regular connectivity with its texture and an irregular geometry to texture; on the right,
+
+    <figure class="wide fig-block">
+
+      <a class="zoom" href="img/texture_transfer.png?v=3"><img src="img/texture_transfer.png?v=3" alt="Texture transfer between models"></a>
+
+      <p class="swipe">Swipe sideways to see the whole figure · tap to enlarge</p>
+    <figcaption><b>Texture transfer.</b> A regular connectivity with its texture and an irregular geometry to texture; on the right,
+
         the result, which also inherits details such as the face and the feet.</figcaption>
+
     </figure>
-    <figure class="fig-block">
-      <img src="img/model_substitution.png" alt="Model substitution experiment">
-      <figcaption><b>Model substitution.</b> The geometry of SMPL and the connectivity and texture of a character from Autodesk Character
+
+    <figure class="wide fig-block">
+
+      <a class="zoom" href="img/model_substitution.png?v=3"><img src="img/model_substitution.png?v=3" alt="Model substitution experiment"></a>
+
+      <p class="swipe">Swipe sideways to see the whole figure · tap to enlarge</p>
+    <figcaption><b>Model substitution.</b> The geometry of SMPL and the connectivity and texture of a character from Autodesk Character
+
         Generator: the result can replace the SMPL template and be animated with the inherited skinning.</figcaption>
+
     </figure>
+
     <h3>Python version (2026)</h3>
+
     <p>The whole pipeline is also available in Python as <a href="https://github.com/PietroMsn/pyCMH">pyCMH</a>, which needs only
+
       NumPy and SciPy and adds ZoomOut refinement in the CMH basis, robust Laplacians, local-global ARAP remeshing and automatic
+
       landmarks. The original MATLAB code is in the <a href="https://github.com/PietroMsn/CMH">CMH repository</a>.</p>
+
   </section>
+
+
+
 
 
   <section id="publications">
+
     <h2>Publications</h2>
+
     <ul class="pubs">
+
       <li><div class="t">CMH: Coordinates Manifold Harmonics for Functional Remeshing</div><div class="a">R. Marin*, S. Melzi*, <b>P. Musoni</b>, F. Bardon, M. Tarini, U. Castellani</div><div class="v">Eurographics Workshop on 3D Object Retrieval (3DOR 2019), pp. 63–70</div><div class="links"><a href="https://diglib.eg.org/bitstream/handle/10.2312/3dor20191063/063-070.pdf">PDF</a><a href="https://doi.org/10.2312/3dor.20191063">DOI</a></div></li>
       <li><div class="t">Intrinsic/extrinsic embedding for functional remeshing of 3D shapes</div><div class="a">S. Melzi, R. Marin, <b>P. Musoni</b>, F. Bardon, M. Tarini, U. Castellani</div><div class="v">Computers &amp; Graphics, vol. 88, pp. 1–12, 2020</div><div class="links"><a href="https://doi.org/10.1016/j.cag.2020.02.002">DOI</a></div></li>
+
     </ul>
+
   </section>
+
+
 
   <section id="bibtex">
+
     <h2>BibTeX</h2>
+
     <p>If you use this work, please cite:</p>
+
     <div class="bib"><button type="button" onclick="copyBib(this)">Copy</button><pre>@inproceedings{cmh20193dor,
+
   title     = {{CMH: Coordinates Manifold Harmonics for Functional Remeshing}},
+
   author    = {Marin, Riccardo and Melzi, Simone and Musoni, Pietro and Bardon, Filippo and Tarini, Marco and Castellani, Umberto},
+
   booktitle = {Eurographics Workshop on 3D Object Retrieval},
+
   pages     = {63--70},
+
   year      = {2019},
+
   publisher = {The Eurographics Association},
+
   doi       = {10.2312/3dor.20191063}
+
 }</pre></div>
     <div class="bib"><button type="button" onclick="copyBib(this)">Copy</button><pre>@article{melzi2020intrinsic,
+
   title     = {Intrinsic/extrinsic embedding for functional remeshing of 3D shapes},
+
   author    = {Melzi, Simone and Marin, Riccardo and Musoni, Pietro and Bardon, Filippo and Tarini, Marco and Castellani, Umberto},
+
   journal   = {Computers \&amp; Graphics},
+
   volume    = {88},
+
   pages     = {1--12},
+
   year      = {2020},
+
   publisher = {Elsevier},
+
   doi       = {10.1016/j.cag.2020.02.002}
+
 }</pre></div>
+
   </section>
 
+
+
   <section id="resources">
+
     <h2>Resources</h2>
+
     <div class="res">
+
       <div class="res-block"><h3>Code</h3><ul><li><a href="https://github.com/PietroMsn/CMH">CMH</a>: original MATLAB implementation</li><li><a href="https://github.com/PietroMsn/pyCMH">pyCMH</a>: Python implementation (NumPy and SciPy only)</li></ul></div>
       <div class="res-block"><h3>Related work</h3><ul><li><a href="../Functional-skeleton-transfer/">A Functional Skeleton Transfer</a> (SCA 2021)</li><li><a href="../GIM3D/">GIM3D: A 3D Dataset for Garment Segmentation</a> (STAG 2022)</li></ul></div>
+
     </div>
+
   </section>
+
+
 
 </main>
 
+
+
 <footer>
+
   <div class="wrap">
+
     <span>© 2019 Riccardo Marin, Simone Melzi, Pietro Musoni, Filippo Bardon, Marco Tarini, Umberto Castellani</span>
+
     <a href="../">← Pietro Musoni's homepage</a>
+
   </div>
+
 </footer>
 
+
+
 <script>
+
 function copyBib(btn) {
+
   const text = btn.nextElementSibling.textContent;
+
   const done = () => { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy", 1600); };
+
   if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => {});
+
 }
+
 </script>
+
 </body>
+
 </html>
+

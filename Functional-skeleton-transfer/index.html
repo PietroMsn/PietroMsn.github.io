@@ -1,162 +1,319 @@
 <!doctype html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>A Functional Skeleton Transfer</title>
+
   <meta name="description" content="A functional approach to transfer the skeleton of a rigged 3D model to other shapes, through a compact functional regressor.">
+
   <meta name="author" content="Pietro Musoni, Riccardo Marin, Simone Melzi, Umberto Castellani">
+
   <meta property="og:title" content="A Functional Skeleton Transfer">
+
   <meta property="og:description" content="A functional approach to transfer the skeleton of a rigged 3D model to other shapes, through a compact functional regressor.">
+
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://pietromsn.github.io/Functional-skeleton-transfer/img/teaser.png">
+
+  <meta property="og:image" content="https://pietromsn.github.io/Functional-skeleton-transfer/img/teaser.png?v=3">
+
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/project.css?v=2">
+
+  <link rel="stylesheet" href="../assets/project.css?v=3">
+
 </head>
+
 <body>
 
+
+
 <header class="topbar">
+
   <div class="wrap topbar-inner">
-    <a class="brand" href="../"><span class="brand-mark">PM</span>Pietro Musoni</a>
+
+    <a class="brand" href="../"><span class="brand-mark">PM</span><span class="brand-name">Pietro Musoni</span></a>
+
     <nav>
+
       <a href="#abstract">Abstract</a>
+
       <a href="#method">Method</a>
+
       <a href="#results">Results</a>
+
       <a href="#bibtex">BibTeX</a>
+
     </nav>
+
   </div>
+
 </header>
 
+
+
 <section class="head">
+
   <div class="wrap">
+
     <p class="venue">ACM SIGGRAPH / Eurographics SCA 2021 · PACMCGIT</p>
+
     <h1>A Functional Skeleton Transfer</h1>
+
     <p class="tagline">Transfer the skeleton of a rigged model to new shapes with a functional regressor, without a dense correspondence.</p>
+
     <p class="authors">
+
         <span><a href="../">Pietro Musoni</a><sup>1</sup></span>
         <span>Riccardo Marin<sup>2</sup></span>
         <span>Simone Melzi<sup>2</sup></span>
         <span>Umberto Castellani<sup>1</sup></span>
+
     </p>
+
     <p class="affils">
+
         <span><sup>1</sup> University of Verona</span>
         <span><sup>2</sup> Sapienza University of Rome</span>
+
     </p>
+
     <ul class="buttons">
+
         <li><a href="https://doi.org/10.1145/3480140"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5a1 1 0 0 0 0 2H20v1H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/></svg>Paper</a></li>
         <li><a href="https://github.com/PietroMsn/Functional-skeleton-transfer/blob/main/preprint_paper.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5z"/></svg>Preprint</a></li>
         <li><a href="https://github.com/PietroMsn/Functional-skeleton-transfer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>Code</a></li>
         <li><a class="soft" href="#bibtex"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 6h4v6H8c0 2 1 3 3 3v2c-3 0-5-2-5-5V6zm8 0h4v6h-3c0 2 1 3 3 3v2c-3 0-5-2-5-5V6z"/></svg>BibTeX</a></li>
+
     </ul>
+
   </div>
+
 </section>
 
+
+
 <main class="wrap">
-  <figure class="teaser">
-    <img src="img/teaser.png" alt="Skeletons transferred to humans, children and animals">
+
+  <figure class="wide teaser">
+
+    <a class="zoom" href="img/teaser.png?v=3"><img src="img/teaser.png?v=3" alt="Skeletons transferred to humans, children and animals"></a>
+
+    <p class="swipe">Swipe sideways to see the whole figure · tap to enlarge</p>
     <figcaption>Results of our method: adult humans that inherit the SMPL skeleton, children that receive the skeleton of SMIL, and lions that receive the skeleton of SMAL. The surfaces come from different datasets and have different discretizations.</figcaption>
+
   </figure>
 
+
+
   <div class="narrow" style="margin:0 auto">
+
   <section id="abstract">
+
     <h2>Abstract</h2>
+
     <p class="abstract">The animation community has spent significant effort trying to ease rigging procedures. This is necessitated because the increasing availability of 3D data makes manual rigging infeasible. However, object animations involve understanding elaborate geometry and dynamics, and such knowledge is hard to infuse even with modern data-driven techniques. Automatic rigging methods do not provide adequate control and cannot generalize in the presence of unseen artifacts. As an alternative, one can design a system for one shape and then transfer it to other objects. In previous work, this has been implemented by solving the dense point-to-point correspondence problem. Such an approach requires a significant amount of supervision, often placing hundreds of landmarks by hand. This paper proposes a functional approach for skeleton transfer that uses limited information and does not require a complete match between the geometries. To do so, we suggest a novel representation for the skeleton properties, namely the functional regressor, which is compact and invariant to different discretizations and poses. We consider our functional regressor a new operator to adopt in intrinsic geometry pipelines for encoding the pose information, paving the way for several new applications. We numerically stress our method on a large set of different shapes and object classes, providing qualitative and numerical evaluations of precision and computational efficiency. Finally, we show a preliminar transfer of the complete rigging scheme, introducing a promising direction for future explorations.</p>
+
   </section>
+
   </div>
 
+
+
   <section id="method">
+
     <h2>Method</h2>
+
     <p>The input is a rigged source model and a target mesh. We encode the joints of the source skeleton as a <b>functional regressor</b>:
+
       a small matrix in the spectral (Laplace–Beltrami) basis that is independent of the mesh resolution and of the pose. A functional map
+
       between source and target, computed with few landmarks, carries the regressor to the target, where it gives back the position of
+
       every joint.</p>
-    <figure class="fig-block">
-      <img src="img/pipeline.png?v=2" alt="Pipeline overview">
-      <figcaption><b>Pipeline.</b> From a rigged source and a target mesh, we optimize the functional representation of the skinning and,
+
+    <figure class="wide fig-block">
+
+      <a class="zoom" href="img/pipeline.png?v=3"><img src="img/pipeline.png?v=3" alt="Pipeline overview"></a>
+
+      <p class="swipe">Swipe sideways to see the whole figure · tap to enlarge</p>
+    <figcaption><b>Pipeline.</b> From a rigged source and a target mesh, we optimize the functional representation of the skinning and,
+
         through a functional map between the two shapes, transfer the skeleton to the target, which can then move following the semantics of the source.</figcaption>
+
     </figure>
+
   </section>
 
+
+
   <section id="results">
+
     <h2>Results</h2>
+
     <p>The same regressor works with different skeletons, with clothed and noisy surfaces and across object classes, from humans to animals.</p>
-    <figure class="fig-block">
-      <img src="img/mixamo.png?v=2" alt="Transfer of Mixamo skeletons with 22 and 34 joints">
-      <figcaption>Transfer of two Mixamo skeletons, with 22 joints (left) and 34 joints, including the hands (right). The results are
+
+    <figure class="wide fig-block">
+
+      <a class="zoom" href="img/mixamo.png?v=3"><img src="img/mixamo.png?v=3" alt="Transfer of Mixamo skeletons with 22 and 34 joints"></a>
+
+      <p class="swipe">Swipe sideways to see the whole figure · tap to enlarge</p>
+    <figcaption>Transfer of two Mixamo skeletons, with 22 joints (left) and 34 joints, including the hands (right). The results are
+
         coherent and independent of the skeleton.</figcaption>
+
     </figure>
+
     <div class="fig-grid">
+
       <figure>
-        <img src="img/clothed.png" alt="Skeleton transfer to a clothed model">
+
+        <a class="zoom" href="img/clothed.png?v=3"><img src="img/clothed.png?v=3" alt="Skeleton transfer to a clothed model"></a>
+
         <figcaption>Transfer from a FAUST shape to a clothed model: despite the different surfaces, the regressor places the skeleton correctly.</figcaption>
+
       </figure>
+
       <div>
+
         <h3>Why functional</h3>
+
         <p>Previous approaches need a dense point-to-point correspondence, often with hundreds of hand-placed landmarks. The functional
+
           regressor needs only a functional map, so it is <b>fast</b>, <b>robust to different discretizations and poses</b>, and it can
+
           be plugged into any intrinsic geometry pipeline.</p>
+
         <p>The paper also shows a first transfer of the complete rigging, skinning weights included, between different shapes.</p>
+
       </div>
+
     </div>
+
   </section>
+
+
+
 
 
   <section id="publications">
+
     <h2>Publications</h2>
+
     <ul class="pubs">
+
       <li><div class="t">A Functional Skeleton Transfer</div><div class="a"><b>P. Musoni</b>, R. Marin, S. Melzi, U. Castellani</div><div class="v">Proceedings of the ACM on Computer Graphics and Interactive Techniques, vol. 4, no. 3 (SCA 2021)</div><div class="links"><a href="https://doi.org/10.1145/3480140">DOI</a><a href="https://github.com/PietroMsn/Functional-skeleton-transfer/blob/main/preprint_paper.pdf">Preprint</a></div></li>
+
     </ul>
+
   </section>
+
+
 
   <section id="bibtex">
+
     <h2>BibTeX</h2>
+
     <p>If you use this work, please cite:</p>
+
     <div class="bib"><button type="button" onclick="copyBib(this)">Copy</button><pre>@article{musoni2021functional,
+
   title     = {A functional skeleton transfer},
+
   author    = {Musoni, Pietro and Marin, Riccardo and Melzi, Simone and Castellani, Umberto},
+
   journal   = {Proceedings of the ACM on Computer Graphics and Interactive Techniques},
+
   volume    = {4},
+
   number    = {3},
+
   pages     = {1--15},
+
   year      = {2021},
+
   publisher = {ACM New York, NY, USA},
+
   doi       = {10.1145/3480140}
+
 }</pre></div>
+
   </section>
+
+
 
   <section id="resources">
+
     <h2>Resources</h2>
+
     <div class="res">
+
       <div class="res-block"><h3>Code &amp; data</h3><ul><li><a href="https://github.com/PietroMsn/Functional-skeleton-transfer">GitHub repository</a> (Python)</li><li>Sample data: <a href="https://smpl.is.tue.mpg.de">SMPL</a> and <a href="https://dfaust.is.tue.mpg.de/">Dynamic FAUST</a></li></ul></div>
       <div class="res-block"><h3>Related work</h3><ul><li><a href="../CMH/">CMH: Coordinates Manifold Harmonics for Functional Remeshing</a></li><li><a href="https://github.com/PietroMsn/Reposing-and-retargeting">Reposing and Retargeting Unrigged Characters</a> (STAG 2021)</li></ul></div>
+
     </div>
+
   </section>
 
+
+
   <section id="ack">
+
     <h2>Acknowledgements</h2>
+
     <p class="small">RM and SM are supported by the ERC Starting Grant No. 802554 (SPECGEO). This work is partially supported by the MIUR project
+
       “Dipartimenti di Eccellenza 2018-2022” of the Department of Computer Science of Sapienza University and of the Department of
+
       Computer Science of the University of Verona.</p>
+
   </section>
+
+
 
 </main>
 
+
+
 <footer>
+
   <div class="wrap">
+
     <span>© 2021 Pietro Musoni, Riccardo Marin, Simone Melzi, Umberto Castellani</span>
+
     <a href="../">← Pietro Musoni's homepage</a>
+
   </div>
+
 </footer>
 
+
+
 <script>
+
 function copyBib(btn) {
+
   const text = btn.nextElementSibling.textContent;
+
   const done = () => { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy", 1600); };
+
   if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => {});
+
 }
+
 </script>
+
 </body>
+
 </html>
+
