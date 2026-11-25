@@ -9,12 +9,12 @@
   <meta property="og:title" content="GIM3D: A 3D Dataset for Garment Segmentation">
   <meta property="og:description" content="GIM3D (Garments In Motion 3D) is a synthetic dataset of over 4000 labelled clothed 3D humans for garment segmentation.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://pietromsn.github.io/GIM3D/img/teaser.jpg">
+  <meta property="og:image" content="https://pietromsn.github.io/GIM3D/img/teaser.png">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/project.css?v=1">
+  <link rel="stylesheet" href="../assets/project.css?v=2">
 </head>
 <body>
 
@@ -56,7 +56,7 @@
 
 <main class="wrap">
   <figure class="teaser">
-    <img src="img/teaser.jpg" alt="Clothed 3D humans from the GIM3D dataset in different poses">
+    <img src="img/teaser.png" alt="Clothed 3D humans from the GIM3D dataset in different poses">
     <figcaption>Samples from GIM3D: different body shapes, poses, outfits and fabrics, obtained by physically simulating the garments on animated avatars.</figcaption>
   </figure>
 
@@ -73,11 +73,11 @@
       <a href="https://chalearnlap.cvc.uab.cat/dataset/38/description/">CLOTH3D</a>. Body and clothes are merged into a single
       surface, as a 3D scanner would see them, and every vertex keeps the label of the garment or of the body part it comes from.</p>
     <figure class="fig-block">
-      <img src="img/overview.jpg" alt="From animated avatars to labelled clothed scans">
+      <img src="img/overview.png" alt="From animated avatars to labelled clothed scans">
       <figcaption>From animated avatars and simulated garments to single labelled meshes that mimic real 3D scans.</figcaption>
     </figure>
     <figure class="fig-block">
-      <img src="img/pipeline.jpg" alt="Dataset creation pipeline in four steps">
+      <img src="img/pipeline.png" alt="Dataset creation pipeline in four steps">
       <figcaption><b>Creation pipeline.</b> (a) Body and garments as separate meshes; (b) merged into a dense watertight mesh;
         (c) decimated while keeping the details; (d) per-vertex labels transferred from the garment meshes by nearest neighbour.</figcaption>
     </figure>
@@ -91,7 +91,7 @@
           (body / upper garment / lower garment), in formats ready for PointNet, PointNet++ and DiffusionNet.</p>
       </div>
       <figure>
-        <img src="img/subsets.jpg" alt="Examples of the three outfit categories">
+        <img src="img/subsets.png" alt="Examples of the three outfit categories">
         <figcaption>Examples from the three subsets: t-shirt + trousers, top + trousers and jumpsuit.</figcaption>
       </figure>
     </div>
@@ -102,7 +102,7 @@
     <p>We train state-of-the-art networks for point clouds (PointNet, PointNet++) and meshes (DiffusionNet) on GIM3D and test them
       on <b>real scans</b> from the SIZER and BUFF datasets, never seen during training.</p>
     <figure class="fig-block">
-      <img src="img/results.jpg" alt="Garment segmentation of real scans">
+      <img src="img/results.png" alt="Garment segmentation of real scans">
       <figcaption>Segmentation of real scans (top: SIZER, bottom: BUFF) by networks trained on GIM3D. From left to right:
         ground truth, PointNet, PointNet++ and DiffusionNet. Blue: upper garment; yellow: lower garment.</figcaption>
     </figure>

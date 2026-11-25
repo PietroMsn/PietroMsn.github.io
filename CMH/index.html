@@ -9,12 +9,12 @@
   <meta property="og:title" content="CMH: Coordinates Manifold Harmonics for Functional Remeshing">
   <meta property="og:description" content="CMH (Coordinates Manifold Harmonics) transfers the connectivity of a template mesh onto the geometry of a scanned shape through functional maps.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://pietromsn.github.io/CMH/img/teaser.jpg">
+  <meta property="og:image" content="https://pietromsn.github.io/CMH/img/teaser.png">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/project.css?v=1">
+  <link rel="stylesheet" href="../assets/project.css?v=2">
 </head>
 <body>
 
@@ -60,7 +60,7 @@
 
 <main class="wrap">
   <figure class="teaser">
-    <img src="img/teaser.jpg" alt="Mesh transfer: desired geometry, desired connectivity and the result">
+    <img src="img/teaser.png" alt="Mesh transfer: desired geometry, desired connectivity and the result">
     <figcaption>From left to right: the shape with the desired geometry, the mesh with the desired connectivity, and the result of CMH, which combines the connectivity of the second with the geometry of the first.</figcaption>
   </figure>
 
@@ -79,18 +79,18 @@
       basis, a functional map between the scan and the template recovers both the correspondence and the geometric details,
       and the template mesh is then deformed onto the scan.</p>
     <figure class="fig-block">
-      <img src="img/construction.jpg" alt="Construction of the Coordinates Manifold Harmonics">
+      <img src="img/construction.png" alt="Construction of the Coordinates Manifold Harmonics">
       <figcaption><b>CMH construction.</b> For each coordinate we take the difference between the original geometry and its low-pass
         reconstruction with the first 50 Manifold Harmonics; each difference generates one CMH function (red positive, blue negative).</figcaption>
     </figure>
     <div class="fig-grid">
       <figure>
-        <img src="img/cmh_basis.jpg" alt="CMH functions on two shapes">
+        <img src="img/cmh_basis.png" alt="CMH functions on two shapes">
         <figcaption>CMH computed on a female shape from TOSCA and on the SMPL model. Since they depend on the embedding,
           the CMH of two shapes that differ by a rigid motion are not in the same order: the pipeline handles this alignment.</figcaption>
       </figure>
       <figure>
-        <img src="img/nonstandard_pose.jpg" alt="Connectivity transfer for a non-standard pose">
+        <img src="img/nonstandard_pose.png" alt="Connectivity transfer for a non-standard pose">
         <figcaption>Connectivity transfer for a non-standard pose, from the SMPL model to a shape of the SMPL 3K dataset.</figcaption>
       </figure>
     </div>
@@ -101,12 +101,12 @@
     <p>Once the scan shares the connectivity of the template, everything defined on the template comes for free: textures, UV maps,
       skinning weights and rigs.</p>
     <figure class="fig-block">
-      <img src="img/texture_transfer.jpg" alt="Texture transfer between models">
+      <img src="img/texture_transfer.png" alt="Texture transfer between models">
       <figcaption><b>Texture transfer.</b> A regular connectivity with its texture and an irregular geometry to texture; on the right,
         the result, which also inherits details such as the face and the feet.</figcaption>
     </figure>
     <figure class="fig-block">
-      <img src="img/model_substitution.jpg" alt="Model substitution experiment">
+      <img src="img/model_substitution.png" alt="Model substitution experiment">
       <figcaption><b>Model substitution.</b> The geometry of SMPL and the connectivity and texture of a character from Autodesk Character
         Generator: the result can replace the SMPL template and be animated with the inherited skinning.</figcaption>
     </figure>

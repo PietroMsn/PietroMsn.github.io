@@ -112,7 +112,11 @@ h1 {
 /* ---------- content ---------- */
 .teaser { margin: 40px auto 8px; }
 figure { margin: 0; }
-figure img { border-radius: 12px; background: #fff; border: 1px solid var(--line); }
+figure img { border-radius: 12px; }
+@media (prefers-color-scheme: dark) {
+  /* figures have dark labels and meshes: keep them on a soft light panel */
+  figure img { background: #f6efe4; padding: 10px; }
+}
 figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; line-height: 1.55; }
 figcaption b { color: var(--text); }
 

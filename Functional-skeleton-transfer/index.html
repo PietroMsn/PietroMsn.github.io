@@ -9,12 +9,12 @@
   <meta property="og:title" content="A Functional Skeleton Transfer">
   <meta property="og:description" content="A functional approach to transfer the skeleton of a rigged 3D model to other shapes, through a compact functional regressor.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://pietromsn.github.io/Functional-skeleton-transfer/img/teaser.jpg">
+  <meta property="og:image" content="https://pietromsn.github.io/Functional-skeleton-transfer/img/teaser.png">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/project.css?v=1">
+  <link rel="stylesheet" href="../assets/project.css?v=2">
 </head>
 <body>
 
@@ -56,7 +56,7 @@
 
 <main class="wrap">
   <figure class="teaser">
-    <img src="img/teaser.jpg" alt="Skeletons transferred to humans, children and animals">
+    <img src="img/teaser.png" alt="Skeletons transferred to humans, children and animals">
     <figcaption>Results of our method: adult humans that inherit the SMPL skeleton, children that receive the skeleton of SMIL, and lions that receive the skeleton of SMAL. The surfaces come from different datasets and have different discretizations.</figcaption>
   </figure>
 
@@ -74,7 +74,7 @@
       between source and target, computed with few landmarks, carries the regressor to the target, where it gives back the position of
       every joint.</p>
     <figure class="fig-block">
-      <img src="img/pipeline.jpg" alt="Pipeline overview">
+      <img src="img/pipeline.png" alt="Pipeline overview">
       <figcaption><b>Pipeline.</b> From a rigged source and a target mesh, we optimize the functional representation of the skinning and,
         through a functional map between the two shapes, transfer the skeleton to the target, which can then move following the semantics of the source.</figcaption>
     </figure>
@@ -84,13 +84,13 @@
     <h2>Results</h2>
     <p>The same regressor works with different skeletons, with clothed and noisy surfaces and across object classes, from humans to animals.</p>
     <figure class="fig-block">
-      <img src="img/mixamo.jpg" alt="Transfer of Mixamo skeletons with 22 and 34 joints">
+      <img src="img/mixamo.png" alt="Transfer of Mixamo skeletons with 22 and 34 joints">
       <figcaption>Transfer of two Mixamo skeletons, with 22 joints (left) and 34 joints, including the hands (right). The results are
         coherent and independent of the skeleton.</figcaption>
     </figure>
     <div class="fig-grid">
       <figure>
-        <img src="img/clothed.jpg" alt="Skeleton transfer to a clothed model">
+        <img src="img/clothed.png" alt="Skeleton transfer to a clothed model">
         <figcaption>Transfer from a FAUST shape to a clothed model: despite the different surfaces, the regressor places the skeleton correctly.</figcaption>
       </figure>
       <div>
